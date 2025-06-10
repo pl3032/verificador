@@ -5,7 +5,17 @@ from datetime import datetime
 from openpyxl import Workbook
 import io
 
+
+
+
+
+
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, Railway!"
+    
 app.secret_key = 'chave-secreta'
 
 # Banco de dados SQLite
