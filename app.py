@@ -12,9 +12,7 @@ import io
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Hello, Railway!"
+
     
 app.secret_key = 'chave-secreta'
 
