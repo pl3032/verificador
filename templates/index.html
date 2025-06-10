@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva de Sala</title>
+</head>
+<body>
+    <h1>Reservar Sala de Reunião</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li style="color: {% if category == 'error' %}red{% else %}green{% endif %};">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <label>Nome da Sala:</label><br>
+        <input type="text" name="nome_sala" required><br><br>
+
+        <label>Seu Nome:</label><br>
+        <input type="text" name="usuario" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Início da Reserva:</label><br>
+        <input type="datetime-local" name="inicio" required><br><br>
+
+        <label>Fim da Reserva:</label><br>
+        <input type="datetime-local" name="fim" required><br><br>
+
+        <input type="submit" value="Reservar Sala">
+
+        <a href="/exportar_excel" class="btn btn-success">Exportar Reservas para Excel</a>
+
+    </form>
+</body>
+</html>
